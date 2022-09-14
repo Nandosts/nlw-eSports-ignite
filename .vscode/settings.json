@@ -1,0 +1,23 @@
+{
+  "debug.allowBreakpointsEverywhere": true,
+
+  /** Enable auto format */
+  "[html]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.formatOnSave": true
+  },
+
+  /** Auto-fix on save */
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "html"
+  ],
+}
