@@ -6,6 +6,8 @@
     "formulahendry.auto-close-tag",
     "vincaslt.highlight-matching-tag",
     "csstools.postcss",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "Prisma.prisma",
+    "alexcvzz.vscode-sqlite"
   ]
 }

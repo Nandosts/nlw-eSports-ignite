@@ -11,13 +11,13 @@
   "[css]": {
     "editor.formatOnSave": true
   },
+  "[prisma]": {
+    "editor.formatOnSave": true
+  },
 
   /** Auto-fix on save */
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": [
-    "javascript",
-    "html"
-  ],
+  "eslint.validate": ["javascript", "html", "css"]
 }
