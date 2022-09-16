@@ -4,6 +4,8 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "formulahendry.auto-close-tag",
-    "vincaslt.highlight-matching-tag"
+    "vincaslt.highlight-matching-tag",
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss"
   ]
 }

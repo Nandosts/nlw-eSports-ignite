@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:@typescript-eslint/recommended",
   ],
   overrides: [],
@@ -15,6 +16,6 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "tailwindcss", "@typescript-eslint"],
   rules: {},
 };
