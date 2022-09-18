@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/main.css";
 
 import LogoImg from "./assets/logo-nlw-esports.svg";
 import { GameBanner } from "./components/GameBanner";
 import { CreateAdBanner } from "./components/CreateAdBanner";
 
+interface GameTypes {
+  id: string;
+  title: string;
+  _count: {
+    ads: number;
+  };
+  bannerUrl: string;
+}
+
 const App = () => {
-  const games = [
-    { title: "League of Legends", adsCount: 4, bannerUrl: "/game-1.png" },
-    { title: "Apex Legends", adsCount: 4, bannerUrl: "/game-2.png" },
-    { title: "Counter Strike", adsCount: 4, bannerUrl: "/game-3.png" },
-    { title: "World of Warcraft", adsCount: 4, bannerUrl: "/game-4.png" },
-    { title: "Dota 2", adsCount: 4, bannerUrl: "/game-5.png" },
-    { title: "Fortnite", adsCount: 4, bannerUrl: "/game-6.png" },
-  ];
-  16;
+  const [games, setGames] = useState<GameTypes[]>([]);
+
+  useEffect(() => {
+    console.log(games);
+    fetch("http://localhost:3333/games")
+      .then((response) => response.json())
+      .then((data) => setGames(data));
+  }, []);
+
   return (
     <div className="mx-auto my-20 flex max-w-[1344px] flex-col items-center">
       <img src={LogoImg} className="h-[30%] w-[30%]" alt="Logo NLW e-sports" />
@@ -26,13 +35,13 @@ const App = () => {
         está aqui.
       </h1>
       <div className="mt-16 grid grid-cols-6 gap-6">
-        {games.map(function (game, i) {
+        {games.map(function (game) {
           return (
             <GameBanner
-              key={i}
+              key={game.id}
               bannerUrl={game.bannerUrl}
               title={game.title}
-              adsCount={game.adsCount}
+              adsCount={game._count.ads}
             />
           );
         })}
