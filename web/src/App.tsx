@@ -2,16 +2,17 @@ import React from "react";
 import "./styles/main.css";
 
 import LogoImg from "./assets/logo-nlw-esports.svg";
-import { MagnifyingGlassPlus } from "phosphor-react";
+import { GameBanner } from "./components/GameBanner";
+import { CreateAdBanner } from "./components/CreateAdBanner";
 
 const App = () => {
   const games = [
-    "League of Legends",
-    "Apex Legends",
-    "Counter Strike",
-    "World of Warcraft",
-    "Dota 2",
-    "Fortnite",
+    { title: "League of Legends", adsCount: 4, bannerUrl: "/game-1.png" },
+    { title: "Apex Legends", adsCount: 4, bannerUrl: "/game-2.png" },
+    { title: "Counter Strike", adsCount: 4, bannerUrl: "/game-3.png" },
+    { title: "World of Warcraft", adsCount: 4, bannerUrl: "/game-4.png" },
+    { title: "Dota 2", adsCount: 4, bannerUrl: "/game-5.png" },
+    { title: "Fortnite", adsCount: 4, bannerUrl: "/game-6.png" },
   ];
   16;
   return (
@@ -27,40 +28,16 @@ const App = () => {
       <div className="mt-16 grid grid-cols-6 gap-6">
         {games.map(function (game, i) {
           return (
-            <a href="" key={i} className="relative rounded-lg text-white">
-              <img
-                key={i}
-                src={`/game-${i + 1}.png`}
-                alt={`Imagem do Jogo ${game}`}
-              />
-              {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="bg-game-gradient absolute inset-x-0 bottom-0 w-full px-4 pt-16 pb-4">
-                <strong className="block font-bold">{game}</strong>
-                <span className="mt-1 block text-sm text-zinc-300">
-                  4 anúncios
-                </span>
-              </div>
-            </a>
+            <GameBanner
+              key={i}
+              bannerUrl={game.bannerUrl}
+              title={game.title}
+              adsCount={game.adsCount}
+            />
           );
         })}
       </div>
-      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-      <div className="bg-nlw-gradient mt-8 self-stretch overflow-hidden rounded-lg pt-1">
-        <div className=" flex items-center justify-between bg-[#2A2634] px-8 py-6">
-          <div>
-            <strong className="block text-2xl font-black text-white">
-              Não encontrou seu duo?
-            </strong>
-            <span className="text-zinc-400">
-              Publique um anúncio pra encontrar novos players!
-            </span>
-          </div>
-          <button className="flex items-center gap-3 rounded bg-violet-500 py-3 px-4 text-white hover:bg-violet-600">
-            <MagnifyingGlassPlus size={24} />
-            Publicar Anúncio
-          </button>
-        </div>
-      </div>
+      <CreateAdBanner />
     </div>
   );
 };
