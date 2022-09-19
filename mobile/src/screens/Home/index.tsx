@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FlatList, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 import { Background } from "../../components/Background";
 
@@ -22,9 +23,9 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetch("http://192.168.1.38:3333/games")
-      .then((response) => response.json())
-      .then((data) => setGames(data));
+    axios("http://192.168.1.38:3333/games").then((response) =>
+      setGames(response.data)
+    );
   }, []);
 
   return (

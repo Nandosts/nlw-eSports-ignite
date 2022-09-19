@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute, useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 import logoImg from "../../assets/logo-nlw-esports.png";
 
@@ -36,9 +37,9 @@ export function Game() {
   }
 
   useEffect(() => {
-    fetch(`http://192.168.1.38:3333/games/${game.id}/ads`)
-      .then((response) => response.json())
-      .then((data) => setDuos(data));
+    axios(`http://192.168.1.38:3333/games/${game.id}/ads`).then((response) =>
+      setDuos(response.data)
+    );
   }, []);
 
   return (
